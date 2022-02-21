@@ -34,7 +34,6 @@
                 <div class="alert alert-danger">{{$message}}</div>
             @enderror
         </div>
-
         <div class="form-group">
             <label for="published">Publish</label>
            <input type="checkbox" id="published" name="published">
@@ -43,7 +42,21 @@
                 <div class="alert alert-danger">{{$message}}</div>
             @enderror
         </div>
-
+        <div class="form-group">
+            <p>Tags</p>
+            @foreach ($tags as $tag)
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" id="{{$tag->slug}}"  class="form-check-input" name="tags[]" value="{{$tag->id}}">
+                    <label  class="form-check-label" for="{{$tag->slug}}">{{$tag->title}}</label>
+                
+                    {{-- @error('content')
+                        <div class="alert alert-danger">{{$message}}</div>
+                    @enderror --}}
+                </div>
+            @endforeach
+           
+        </div>
+        
        <button class="btn btn-success" type="submit" >Add to Database</button>
 
     </form>
