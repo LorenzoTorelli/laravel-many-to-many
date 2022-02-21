@@ -21,15 +21,13 @@
             @endif
         </div>
 
-        @if ($post->tag > 0)
             
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <strong>Tags</strong>
             @foreach ($post->tags as $tag)
                 <span class="badge badge-primary">{{$tage->title}}</span>
             @endforeach
-        </div>
-        @endif
-
+        </div> --}}
+        
     </div>
 @endsection

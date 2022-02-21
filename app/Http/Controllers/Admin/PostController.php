@@ -18,7 +18,7 @@ class PostController extends Controller
         "content" => "required",
         "published" => "sometimes|accepted",
         "category_id" => "nullable|exists:categories,id", 
-        "tags" => "nullable|exists:tags_id"
+        "tags" => "nullable|exists:tags,id"
     ];
     /**
      * Display a listing of the resource.
@@ -79,7 +79,7 @@ class PostController extends Controller
         $newPost->save();
 
         if (isset($data["tags"]) ) {
-            $newPost->tags()->sync($data["tags"]);
+            $newPost->tag()->sync($data["tags"]);
         }
 
         return redirect()->route("posts.show", $newPost->id);
